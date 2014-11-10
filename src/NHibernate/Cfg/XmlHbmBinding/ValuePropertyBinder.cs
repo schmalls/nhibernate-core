@@ -30,24 +30,21 @@ namespace NHibernate.Cfg.XmlHbmBinding
 			{
 				BindFormulas(formulas);
 			}
-			else
-			{
-				new ColumnsBinder(value, Mappings).Bind(propertyMapping.Columns, isNullable,
-				                                        () =>
-				                                        new HbmColumn
-				                                        	{
-				                                        		name = mappings.NamingStrategy.PropertyToColumnName(propertyPath),
-				                                        		length = propertyMapping.length,
-				                                        		scale = propertyMapping.scale,
-				                                        		precision = propertyMapping.precision,
-				                                        		notnull = propertyMapping.notnull,
-				                                        		notnullSpecified = propertyMapping.notnullSpecified,
-				                                        		unique = propertyMapping.unique,
-				                                        		uniqueSpecified = true,
-				                                        		uniquekey = propertyMapping.uniquekey,
-				                                        		index = propertyMapping.index
-				                                        	});
-			}
+			new ColumnsBinder(value, Mappings).Bind(propertyMapping.Columns, isNullable,
+			                                        () =>
+			                                        new HbmColumn
+			                                        	{
+			                                        		name = mappings.NamingStrategy.PropertyToColumnName(propertyPath),
+			                                        		length = propertyMapping.length,
+			                                        		scale = propertyMapping.scale,
+			                                        		precision = propertyMapping.precision,
+			                                        		notnull = propertyMapping.notnull,
+			                                        		notnullSpecified = propertyMapping.notnullSpecified,
+			                                        		unique = propertyMapping.unique,
+			                                        		uniqueSpecified = true,
+			                                        		uniquekey = propertyMapping.uniquekey,
+			                                        		index = propertyMapping.index
+			                                        	});
 		}
 
 		public void BindSimpleValue(HbmElement element, string propertyPath, bool isNullable)
@@ -58,22 +55,19 @@ namespace NHibernate.Cfg.XmlHbmBinding
 			{
 				BindFormulas(formulas);
 			}
-			else
-			{
-				new ColumnsBinder(value, Mappings).Bind(element.Columns, isNullable,
-																								() =>
-																								new HbmColumn
-																								{
-																									name = mappings.NamingStrategy.PropertyToColumnName(propertyPath),
-																									length = element.length,
-																									scale = element.scale,
-																									precision = element.precision,
-																									notnull = element.notnull,
-																									notnullSpecified = true,
-																									unique = element.unique,
-																									uniqueSpecified = true,
-																								});
-			}
+			new ColumnsBinder(value, Mappings).Bind(element.Columns, isNullable,
+																							() =>
+																							new HbmColumn
+																							{
+																								name = mappings.NamingStrategy.PropertyToColumnName(propertyPath),
+																								length = element.length,
+																								scale = element.scale,
+																								precision = element.precision,
+																								notnull = element.notnull,
+																								notnullSpecified = true,
+																								unique = element.unique,
+																								uniqueSpecified = true,
+																							});
 		}
 
 		public void BindSimpleValue(HbmKey propertyMapping, string propertyPath, bool isNullable)
@@ -97,17 +91,14 @@ namespace NHibernate.Cfg.XmlHbmBinding
 			{
 				BindFormulas(formulas);
 			}
-			else
-			{
-				new ColumnsBinder(value, Mappings).Bind(manyToManyMapping.Columns, isNullable,
-																								() =>
-																								new HbmColumn
-																								{
-																									name = mappings.NamingStrategy.PropertyToColumnName(propertyPath),
-																									unique = manyToManyMapping.unique,
-																									uniqueSpecified = true
-																								});
-			}
+			new ColumnsBinder(value, Mappings).Bind(manyToManyMapping.Columns, isNullable,
+																							() =>
+																							new HbmColumn
+																							{
+																								name = mappings.NamingStrategy.PropertyToColumnName(propertyPath),
+																								unique = manyToManyMapping.unique,
+																								uniqueSpecified = true
+																							});
 		}
 
 		public void BindSimpleValue(HbmCollectionId collectionIdMapping, string propertyPath)
@@ -153,16 +144,13 @@ namespace NHibernate.Cfg.XmlHbmBinding
 			{
 				BindFormulas(formulas);
 			}
-			else
-			{
-				new ColumnsBinder(value, Mappings).Bind(mapKeyMapping.Columns, isNullable,
-				                                        () =>
-				                                        new HbmColumn
-				                                        	{
-				                                        		name = mappings.NamingStrategy.PropertyToColumnName(propertyPath),
-				                                        		length = mapKeyMapping.length
-				                                        	});
-			}
+			new ColumnsBinder(value, Mappings).Bind(mapKeyMapping.Columns, isNullable,
+			                                        () =>
+			                                        new HbmColumn
+			                                        	{
+			                                        		name = mappings.NamingStrategy.PropertyToColumnName(propertyPath),
+			                                        		length = mapKeyMapping.length
+			                                        	});
 		}
 
 		public void BindSimpleValue(HbmManyToOne manyToOneMapping, string propertyPath, bool isNullable)
@@ -207,15 +195,12 @@ namespace NHibernate.Cfg.XmlHbmBinding
 			{
 				BindFormulas(formulas);
 			}
-			else
-			{
-				new ColumnsBinder(value, Mappings).Bind(mapKeyManyToManyMapping.Columns, isNullable,
-																								() =>
-																								new HbmColumn
-																								{
-																									name = mappings.NamingStrategy.PropertyToColumnName(propertyPath),
-																								});
-			}
+			new ColumnsBinder(value, Mappings).Bind(mapKeyManyToManyMapping.Columns, isNullable,
+																							() =>
+																							new HbmColumn
+																							{
+																								name = mappings.NamingStrategy.PropertyToColumnName(propertyPath),
+																							});
 		}
 
 		public void BindSimpleValue(HbmKeyProperty mapKeyManyToManyMapping, string propertyPath, bool isNullable)
